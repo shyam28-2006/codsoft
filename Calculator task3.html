@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #2f3a46; /* Dark greyish blue background */
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .calculator {
+            display: grid;
+            grid-template-rows: 1fr 3fr;
+            gap: 10px;
+            width: 280px;
+            padding: 20px;
+            background-color: #3b4a59; /* Slightly lighter greyish blue */
+            border-radius: 10px;
+        }
+
+        .display {
+            grid-row: 1 / 2;
+            background-color: #4a5a6a;
+            padding: 20px;
+            text-align: right;
+            font-size: 2rem;
+            border-radius: 8px;
+            color: #fff;
+        }
+
+        .buttons {
+            grid-row: 2 / 3;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .button {
+            background-color: #576a7a;
+            border: none;
+            padding: 20px;
+            font-size: 1.5rem;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #4a5a6a;
+        }
+
+        .button:active {
+            background-color: #3b4a59;
+        }
+
+        .button.operator {
+            background-color: #8a9ba8;
+        }
+
+        .button.operator:hover {
+            background-color: #7c8d95;
+        }
+
+        .button.clear {
+            background-color: #d9534f;
+        }
+
+        .button.clear:hover {
+            background-color: #c9302c;
+        }
+
+        .button.equal {
+            background-color: #5bc0de;
+        }
+
+        .button.equal:hover {
+            background-color: #31b0d5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="button clear" id="clear">C</button>
+            <button class="button operator" id="divide">/</button>
+            <button class="button operator" id="multiply">*</button>
+            <button class="button operator" id="subtract">-</button>
+
+            <button class="button" id="7">7</button>
+            <button class="button" id="8">8</button>
+            <button class="button" id="9">9</button>
+            <button class="button operator" id="add">+</button>
+
+            <button class="button" id="4">4</button>
+            <button class="button" id="5">5</button>
+            <button class="button" id="6">6</button>
+            <button class="button equal" id="equal">=</button>
+
+            <button class="button" id="1">1</button>
+            <button class="button" id="2">2</button>
+            <button class="button" id="3">3</button>
+            <button class="button" id="0">0</button>
+
+            <button class="button" id="decimal">.</button>
+        </div>
+    </div>
+
+    <script>
+        let currentInput = '0';
+        let previousInput = '';
+        let operator = '';
+        let result = null;
+
+        const display = document.getElementById('display');
+
+        // Update the display function
+        function updateDisplay() {
+            display.textContent = currentInput;
+        }
+
+        // Clear the display
+        function clearDisplay() {
+            currentInput = '0';
+            previousInput = '';
+            operator = '';
+            result = null;
+            updateDisplay();
+        }
+
+        // Handle number clicks
+        function handleNumberClick(number) {
+            if (currentInput === '0') {
+                currentInput = number;
+            } else {
+                currentInput += number;
+            }
+            updateDisplay();
+        }
+
+        // Handle operator clicks
+        function handleOperatorClick(op) {
+            if (operator && currentInput !== '') {
+                calculate();
+            }
+            operator = op;
+            previousInput = currentInput;
+            currentInput = '';
+        }
+
+        // Perform calculation
+        function calculate() {
+            if (previousInput === '' || currentInput === '') return;
+            let prev = parseFloat(previousInput);
+            let current = parseFloat(currentInput);
+
+            switch (operator) {
+                case '+':
+                    result = prev + current;
+                    break;
+                case '-':
+                    result = prev - current;
+                    break;
+                case '*':
+                    result = prev * current;
+                    break;
+                case '/':
+                    if (current === 0) {
+                        result = 'Error';
+                    } else {
+                        result = prev / current;
+                    }
+                    break;
+                default:
+                    return;
+            }
+
+            currentInput = result.toString();
+            operator = '';
+            previousInput = '';
+            updateDisplay();
+        }
+
+        // Handle decimal click
+        function handleDecimalClick() {
+            if (!currentInput.includes('.')) {
+                currentInput += '.';
+            }
+            updateDisplay();
+        }
+
+        // Handle equal click
+        function handleEqualClick() {
+            calculate();
+        }
+
+        // Add event listeners to buttons
+        document.getElementById('clear').addEventListener('click', clearDisplay);
+        document.getElementById('divide').addEventListener('click', () => handleOperatorClick('/'));
+        document.getElementById('multiply').addEventListener('click', () => handleOperatorClick('*'));
+        document.getElementById('subtract').addEventListener('click', () => handleOperatorClick('-'));
+        document.getElementById('add').addEventListener('click', () => handleOperatorClick('+'));
+        document.getElementById('equal').addEventListener('click', handleEqualClick);
+
+        // Number buttons
+        const numberButtons = document.querySelectorAll('.button:not(.operator):not(.clear):not(.equal):not(#decimal)');
+        numberButtons.forEach(button => {
+            button.addEventListener('click', () => handleNumberClick(button.textContent));
+        });
+
+        // Decimal button
+        document.getElementById('decimal').addEventListener('click', handleDecimalClick);
+    </script>
+
+</body>
+</html>
+

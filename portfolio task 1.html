@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background-color: #1e2a47; /* Dark grayish-blue */
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #61dafb; /* Light cyan */
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #bbb;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #152236; /* Darker grayish-blue */
+            text-align: center;
+            padding: 80px 0;
+            border-bottom: 3px solid #61dafb;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        header .tagline {
+            font-size: 1.5rem;
+            color: #ccc;
+        }
+
+        /* About Section */
+        #about {
+            background-color: #24324e; /* Lighter dark grayish-blue */
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        #about img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 20px 0;
+        }
+
+        #about p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ddd;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: #18253d; /* Darker blue background */
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        #skills ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #skills li {
+            background-color: #304255; /* Muted grayish-blue */
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: #1e2a47; /* Dark grayish-blue */
+            padding: 60px 0;
+        }
+
+        #projects h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #61dafb;
+        }
+
+        .project {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .project-item {
+            background-color: #24324e;
+            border-radius: 8px;
+            margin: 20px;
+            padding: 20px;
+            width: 45%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .project-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .project-item h3 {
+            font-size: 1.6rem;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .project-item p {
+            color: #bbb;
+        }
+
+        /* Resume Section */
+        #resume {
+            background-color: #24324e;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-button {
+            background-color: #ff6f61; /* Orange accent color */
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #e65a50; /* Darker orange on hover */
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #304255;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        #contact p {
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #152236;
+            padding: 20px 0;
+            text-align: center;
+            color: #bbb;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Your Name</h1>
+            <p class="tagline">Web Developer | Designer | Creator</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <img src="your-photo.jpg" alt="Your Photo">
+            <p>Hello! I'm [Your Name], a passionate web developer with expertise in creating engaging, user-friendly websites. I specialize in HTML, CSS, JavaScript, and web design. My goal is to make the web a better place, one project at a time!</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>React.js</li>
+                <li>Node.js</li>
+                <li>Git & GitHub</li>
+                <li>UI/UX Design</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+
+            <div class="project">
+                <div class="project-item">
+                    <img src="project1.jpg" alt="Project 1">
+                    <h3>Project 1: Portfolio Website</h3>
+                    <p>A personal portfolio website built with HTML, CSS, and JavaScript. It showcases my skills, projects, and experiences in a clean, responsive layout.</p>
+                </div>
+
+                <div class="project-item">
+                    <img src="project2.jpg" alt="Project 2">
+                    <h3>Project 2: Task Manager</h3>
+                    <p>A task management app built with React.js and Node.js. Users can create, update, and delete tasks, all while maintaining a sleek and modern interface.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <h2>Resume</h2>
+            <a href="your-resume.pdf" target="_blank" class="cta-button">Download My Resume</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Email: your.email@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Your Name. All rights reserved.</p>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
+        </div>
+    </footer>
+
+</body>
+</html>
